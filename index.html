@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>exam_2</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <main>
+        <select class="dropdown" name="drink" id="drinks">
+            <option value="Margarita">Margarita</option>
+            <option value="Blue Margarita">Blue Margarita</option>
+            <option value="Tommy's Margarita">Tommy's Margarita</option>
+            <option value="Whitecap Margarita">Whitecap Margarita</option>
+            <option value="Strawberry Margarita">Strawberry Margarita</option>
+            <option value="Smashed Watermelon Margarita">Smashed Watermelon Margarita</option>
+            <!-- <option value="Lime juice">Ice</option>
+            <option value="tequilla">Ice</option> -->
+        </select>
+        <div id="itms" class="row">
+
+        </div>
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+    <script>
+        fetch('https://res.cloudinary.com/des3si8bs/raw/upload/v1679912721/drinks_y1vudo.json').then((response)=>{
+            return response.json();
+        }).then((data)=>{
+            var tmp = data.drinks
+            console.log(tmp)
+            for(let i=0;i<tmp.length;i++){
+                
+              var row = document.getElementById("itms")
+            //   console.log(`${tmp[i]["strImageSource"]}`)
+              row.innerHTML += `<div class="col-lg-3 col-md-6 col-sm-12"><div class="card"><div class="card-img"><img src=${tmp[i]["strImageSource"]}></div><div class="card-body"><p>${tmp[i]["strDrink"]}</p><br><p>${tmp[i]["strInstructions"]}</p></div></div></div>`
+            }
+
+
+            $('#drinks').change(function(){
+                let sc = $('#drinks').val
+                var tmp = data.drinks
+                if(sc === "Margarita"){
+                    var ab = tmp.filter((p)=>{
+                    return p.idDrink === `${tmp["11007"]}`
+                })
+                console.log(ab)
+                
+                // $('#itms').html('')
+                // for(let j=0;j<ab.length;j++){
+                //     console.log(`${ab[j]["strImageSource"]}`)
+                    
+                //     row += `<div class="col-lg-3 col-md-6 col-sm-12"><div class="card"><div class="card-img"><img src=${ab[j]["strImageSource"]}></div><div class="card-body"><p>${ab[j]["strDrink"]}</p><br><p>${ab[j]["strInstructions"]}</p></div></div></div>`
+                //     $('#itms').append(row)
+                // }
+                
+                }
+                
+            })
+        })
+        
+    
+
+     
+    </script>
+</body>
+
+</html>

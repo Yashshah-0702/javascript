@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <label for="">Enter Your Age:</label>
+    <input type="text" name="" id="name" value="">
+    <p id="id"></p> <br> <br>
+    <button onclick="submit()">Submit</button>
+    <script>
+        function submit(){
+            const p = new Promise((resolve, reject) => {
+                var text12 = document.getElementById("name").value;
+                var text = parseInt(text12);
+                if(text<30){
+                   resolve("You are perfect for job")
+                }
+                else if(text<40){
+                    resolve("We can give you chance")
+                }
+                else{
+                    reject("You are not perfect for job")
+                }
+
+            })
+
+            p.then( function(value){
+                document.getElementById("id").innerHTML = value;
+            },
+            function(error){
+                document.getElementById("id").innerHTML = error;
+            })
+        };
+    </script>
+</body>
+</html>

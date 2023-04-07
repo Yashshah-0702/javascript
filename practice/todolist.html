@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todolist</title>
+</head>
+<body>
+    <label for="text">Enter text:</label>
+    <input type="text" name="text" id="text" value=""> <br> <br>
+    <label for="description">Description</label>
+    <textarea name="" id="description" cols="30" rows="5" value=""></textarea> <br>
+    <button type="submit" id="add">Submit</button>
+    <button id="showsummary">Click to show summary</button>
+    <button id="clr">To clear Data</button>
+    <script>
+
+        clear=document.getElementById("clr");
+        clear.addEventListener("click",()=>{
+            a = confirm("data will be removed?");
+            console.log("data removed successfully");
+            localStorage.clear();
+        })
+        summ=document.getElementById("showsummary");
+        summ.addEventListener("click",function(){
+            console.log(localStorage.getItem('itemsJson'));
+        })
+     add=document.getElementById("add");
+     add.addEventListener("click",function(){
+        tit=document.getElementById("text").value;
+        desc=document.getElementById("description").value;
+        if(localStorage.getItem('itemsJson')==null){
+            itemJsonArray=[];
+            itemJsonArray.push([tit,desc]);
+            localStorage.setItem('itemsJson',JSON.stringify(itemJsonArray));
+        }
+        else{
+            itemJsonArraystr=localStorage.getItem('itemsJson');
+            itemJsonArray=JSON.parse(itemJsonArraystr);
+            itemJsonArray.push([tit,desc]);
+            localStorage.setItem('itemsJson',JSON.stringify(itemJsonArray));
+
+        }
+    })
+    </script>
+</body>
+</html>

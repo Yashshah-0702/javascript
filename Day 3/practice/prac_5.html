@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="id"></p>
+    <p id="id2"></p>
+    <script>
+        const Employee={
+            details:function(){
+                return "<br>name:"+this.name+"<br>address:"+this.address+"<br>designation:"+this.designation
+            }
+        } 
+
+
+        const Employee1={
+            name:"yash",
+            address:"Ahmedabad",
+            designation:"Trainee"
+        }
+        const Employee2={
+            name:"yash12",
+            address:"Ahmedabad12",
+            designation:"Trainee12"
+        }
+
+        var id = document.getElementById("id");
+        id.innerHTML=Employee.details.apply(Employee1);
+        document.getElementById("id2").innerHTML=Employee.details.apply(Employee2);
+
+
+    </script>
+</body>
+</html>

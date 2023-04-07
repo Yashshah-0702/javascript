@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Array Methods</h2> 
+<h2>push()</h2>
+<p>The push() method appends a new element to an array:</p>
+
+<p id="demo1"></p>
+<p id="demo2"></p>
+<input type="email" name="email" id="email">
+<button type="submit" onclick="submit()">Submit</button>
+<script>
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo1").innerHTML = fruits;
+const fruits21 = ["Banana", "Orange", "Apple", "Mango"];
+fruits.push(fruits21);
+document.getElementById("demo2").innerHTML = fruits;
+fruits.pop("Banana")
+console.log(fruits)
+arr=[1,3,4,5,6,7,8,9]
+let a = Math.max(...arr)
+console.log(a)
+let b = Math.min(...arr)
+console.log(b)
+let c = arr.sort()
+console.log(c)
+let arr2 = [1,2]
+arr2.push(arr)
+
+console.log(arr2)
+function submit(){
+var regx1 = /^[a-zA-Z\_\.0-9]+@[a-zA-Z\_\.0-9]+$/
+var email = document.getElementById("email").value;
+if(email.length=""){
+    alert("plz Enter values")
+}
+else if(regx1.test(email)){
+    alert("Email is verified");
+}
+else{
+    alert("Plz write email in proper format")
+}
+}
+</script>
+
+</body>
+</html>

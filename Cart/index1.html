@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+    <table id="table" class="table table-hover">
+        <caption></caption>
+        <th></th>
+    </table>
+    <button class="btn btn-primary" onclick="show()">Click To Show Details</button>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+    </script>
+    <script>
+        function show(){
+        fetch('https://gorest.co.in/public/v2/users').then((response)=>{
+            return response.json();
+        }).then((data)=>{
+            var table = document.getElementById("table");
+            table.innerHTML="<tr><th>ID</th><th>Name</th><th>Email</th><th>Gender</th><th>Status</th></tr>"
+
+            for(let i=0;i<data.length;i++){
+                table.innerHTML +=`<tr><td>${data[i]["id"]}</td><td>${data[i]["name"]}</td><td>${data[i]["email"]}</td><td>${data[i]["gender"]}</td><td>${data[i]["status"]}</td></tr>`
+            }
+        })
+    }
+    </script>
+</body>
+</html>
+
+
+

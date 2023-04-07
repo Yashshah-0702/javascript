@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <input type="text" name="" id="text">
+   <button onclick="submit()">Submit</button>
+   <script>
+    function submit(){
+        var text = document.getElementById("text").value;
+        const Prom = new Promise((resolve,reject)=>{
+            if (isNaN(text) && typeof text ==  'string'){
+                var rev = []
+                rev = text.split("")
+                rev = rev.reverse();
+                rev = rev.join("");
+                resolve(rev)
+                // resolve("It is string");
+            }
+            else{
+                reject("it is not a string");
+            }
+        })
+
+        Prom.then(
+            function (val){
+                alert(val)
+            },
+            function (error){
+                alert(error)
+            }
+        )
+    };
+
+    setTimeout(submit,1000);
+   </script>
+</body>
+</html>

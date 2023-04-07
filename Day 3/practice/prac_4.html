@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="display"></p>
+    <script>
+        const Employee={
+            details:function(){
+               return "<br> name "+this.name+"<br>address "+this.address+"<br>Designation "+this.designation;
+            }
+        }
+
+        const Employee1={
+        name:"abc",
+        address:"ahmedabad",
+        designation:"software engineer"
+        }
+
+        document.getElementById("display").innerHTML=Employee.details.call(Employee1);
+    </script>
+</body>
+</html>

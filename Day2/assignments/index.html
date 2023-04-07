@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body >
+
+    <br> <label for="">Employee ID :</label>
+    <input type="text" name="fid" id="fid"> <br> <br>
+    <p id="id"></p>  
+    <label for="">Employee Name:</label>
+    <input type="text" name="fname" id="fname"> <br> <br>
+    <label for="">Age</label>
+    <input type="number" name="age" id="age"> <br> <br>
+    <label id="gender">Gender</label>
+    <input type="radio" name="gender" value="MALE" id="Male">Male
+    <input type="radio" name="gender" value="FEMALE" id="Female">Female
+    <input type="radio" name="gender" value="OTHERS" id="Others">Others <br>
+    <p id="id2"> </p>
+    <label for="">Designation</label>
+    <input type="text" name="fdes" id="fdes"> <br> <br>
+    <label for="">Salary</label>
+    <input type="number" name="salary" id="salary"> <br> <br>
+    <label for="">Location</label>
+    <select name="" id="location">
+        <option value="Ahmedabad">Ahmedabad</option>
+        <option value="Surat">Surat</option>
+        <option value="Junagadh">Junagadh</option>
+        <option value="Kuch">Kuch</option>
+        <option value="Jamnagar">Jamnagar</option>
+    </select> <br> <br>
+    <label for="">Email ID:</label>
+    <input type="email" name="email" id="femail">
+    <p id="id3"></p>
+    <label for="">Date Of Joining:</label>
+    <input type="date" name="date" id="date"> <br> <br>
+    <label for="">Conatact Number:</label>
+    <input type="number" name="contact" id="contact"> <br> <br>
+    <button type="submit" onclick="Myfunction()">Submit</button>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+
+    <script>
+        function Myfunction() {
+            var Male = document.getElementById("Male");
+            var Female = document.getElementById("Female");
+            var Others = document.getElementById("Others");
+            if (Male.checked) {
+                document.getElementById("id2").style = "display:none";
+            }
+            else if (Female.checked) {
+                document.getElementById("id2").style = "display:none";
+            }
+            else if (Others.checked) {
+                document.getElementById("id2").style = "display:none";
+            }
+            else {
+                document.getElementById("id2").innerHTML ="PLz select your gender";
+                document.getElementById("id2").style="color:red; font-size:10px";
+            }
+            var email = document.getElementById("femail").value;
+            var Emid = document.getElementById("fid").value;
+            var fname = document.getElementById("fname").value;
+            var age = document.getElementById("age").value;
+            var fdes = document.getElementById("fdes").value;
+            var sal = document.getElementById("salary").value;
+            var date = document.getElementById("date").value;
+            var contact = document.getElementById("contact").value;
+            var gender = document.getElementsByName("gender").value;
+            var location = document.getElementById("location").value;
+            const res = /^[a-zA-Z\_\.0-9]+@[a-zA-Z\_\.0-9]+$/;
+            
+
+
+            if (Emid.length == " " || fname.length == " " || age.length == " " || fdes.length == " " || sal.length == " " || email.length=="" || date.length=="" || contact.length=="") {
+                alert("fields should not be empty");
+
+            }                                                                                                                                                
+            else if(!res.test(email)){
+                alert("plz enter valid email")
+            }
+            else if (Emid.length < 5) {
+                document.getElementById("id").innerHTML = "EmployeeID should be at least 5 character long"; 
+                document.getElementById("id").style = "color:red; font-size:10px";
+            
+
+            }
+            else {
+                document.getElementById("id").style="display:none"
+                alert("Form is Submitted")
+            }
+
+            if(localStorage.getItem('itemsjson')==null){
+                ItemJson=[]
+                ItemJson.push([Emid,fname,age,gender,fdes,sal,location,email,date,contact])
+                localStorage.setItem('itemsjson',JSON.stringify(ItemJson))
+            }
+
+            else{
+                ItemJsonstr=localStorage.getItem('itemsjson')
+                ItemJson=JSON.parse(ItemJsonstr)
+                ItemJson.push([Emid,fname,age,gender,fdes,sal,location,email,date,contact])
+                localStorage.setItem('itemsjson',JSON.stringify(ItemJson))
+
+            }
+        }
+    </script>
+
+
+                                 
+</body>
+
+</html>                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     

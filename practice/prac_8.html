@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="fname" id="fname">
+    <input type="email" name="" id="email">
+    <button type="submit" onclick="generte()">Generate</button>
+    <table id="data">
+        
+
+
+    </table>
+
+    <script>
+
+        var table=document.getElementById("data");
+        var head=`<td>
+            <tr>name</tr>
+            <tr>email</tr>
+            </td>`
+        table.innerHtml += head;
+
+        function generte() {
+            var name=document.getElementById("fname");
+            var email=document.getElementById("email");
+            
+            var table=document.getElementById("data");
+            var tr=`<td>
+                <tr>${name.value}</tr>
+                <tr>${email.value}</tr>
+                </td>`
+
+            var newrow=table.insertRow();
+            newrow.innerHTML=tr;
+
+
+        };
+
+    </script>
+</body>
+
+</html>

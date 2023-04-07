@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="h1">Hello World</h1>
+    <p id="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, cum.</p>
+
+    <button type="submit" onclick="submit()">Submit t store info</button>
+    <button onclick="summarry()">Click to show summary</button>
+
+    <script>
+
+        function summarry(){
+            console.log(localStorage.getItem('itemsJson'));
+            
+        }
+        function submit(){
+            info1 = document.getElementById("h1").textContent;
+            info2 = document.getElementById("p").textContent;
+            if(localStorage.getItem('itemsJson')==null){
+                itemJsonArray=[];
+                itemJsonArray.push([info1,info2]);
+                localStorage.setItem('itemsJson',JSON.stringify(itemJsonArray));
+            }
+            else{
+                itemJsonArraystr=localStorage.getItem('itemsJson');
+                itemJsonArray=JSON.parse(itemJsonArraystr);
+                itemJsonArray.push([info1,info2]);
+                localStorage.setItem('itemsJson',JSON.stringify(itemJsonArray));
+            }
+        };
+    </script>
+</body>
+</html>

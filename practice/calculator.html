@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+</head>
+
+<body id="time"> 
+    
+    <form action="">
+    <label for="fnum">First Number :</label>
+    <input type="number" name="fnum" id="num1"> <br>
+    <label for="snum">Second Number :</label>
+    <input type="number" name="snum" id="num2"> <br>
+    <label for="operations">Enter Operations:</label>
+    <input type="radio" name="opr" value="+" id="add">
+    <label for="">Addittion</label>
+    <input type="radio" name="opr" value="-" id="sub">
+    <label for="">Subtraction</label>
+    <input type="radio" name="opr" value="*" id="mult">
+    <label for="">Multiplication</label>
+    <input type="radio" name="opr" value="/" id="div">
+    <label for="">Division</label>
+    <h2>Current time is: <span id="time1"></span></h2>
+    <h3 id="result"></h3>
+    <button type="button" value="calculate" onclick="Calc()">Calculate</button>
+    <a href="./calculator.html"><button type="reset">Reset</button></a>
+</form>
+    <script>
+        function Calc() {
+            var n1 = parseInt(document.getElementById("num1").value);
+            var n2 = parseInt(document.getElementById("num2").value);
+            opr = document.getElementsByName("opr");
+            var selected, ans;
+
+            for (i = 0; i < opr.length; i++) {
+                if (opr[i].checked) {
+                    selected = opr[i].value;
+                    
+                }
+            };
+
+            switch (selected) {
+                case "+":
+                    ans = n1 + n2;
+                    break;
+                case "-":
+                    ans = n1 - n2;
+                    break;
+                case "*":
+                    ans = n1 * n2;
+                    break;
+                case "/":
+                    ans = n1 / n2;
+                    
+            }
+
+
+            if(ans !=NaN && ans !=undefined){
+                document.getElementById("result").innerHTML=ans;
+            }
+            
+        };
+
+        timeout=()=>{
+            alert("Your exam is finished");
+            document.getElementById("time").innerHTML="Thanks For appearing in exam";
+        }
+
+        setTimeout(timeout,10000);
+        setInterval(() => {
+            let timer,a;
+            a=new Date();
+            // time=a.toLocaleTimeString();
+            time=a.getHours() + ':' + a.getMinutes() + ':' + a.getSeconds();
+            document.getElementById("time1").innerHTML=time;
+        }, 10000);
+    </script>
+</body>
+
+</html>

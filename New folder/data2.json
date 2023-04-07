@@ -1,0 +1,22 @@
+{
+    "employees": [
+        {
+            "firstName": "Jerry",
+            "lastName": "Negrell",
+            "email": "jerry@bah.com",
+            "phone": "800-597-9405"
+        },
+        {
+            "firstName": "Ed",
+            "lastName": "Snide",
+            "email": "edward@bah.com",
+            "phone": "800-597-9406"
+        },
+        {
+            "firstName": "Pattabhi",
+            "lastName": "Nunn",
+            "email": "pattabhi@bah.com",
+            "phone": "800-597-9407"
+        }
+    ]
+}

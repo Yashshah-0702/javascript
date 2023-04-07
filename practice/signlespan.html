@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Single Span Example with jQuery</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('input[name="tech"]').on('click', function() {
+				var selectedTech = $(this).val();
+				$('#selected-tech').text(selectedTech);
+			});
+		});
+	</script>
+</head>
+<body>
+	<label>Please select your technology:</label>
+	<br>
+	<input type="radio" id="php" name="tech" value="PHP">
+	<label for="php">PHP</label>
+
+	<input type="radio" id="asp-net" name="tech" value="ASP.NET">
+	<label for="asp-net">ASP.NET</label>
+
+	<input type="radio" id="asp" name="tech" value="ASP">
+	<label for="asp">ASP</label>
+
+	<input type="radio" id="jsp" name="tech" value="JSP">
+	<label for="jsp">JSP</label>
+
+	<input type="radio" id="perl" name="tech" value="PERL">
+	<label for="perl">PERL</label>
+
+	<input type="radio" id="cold-fusion" name="tech" value="Cold Fusion">
+	<label for="cold-fusion">Cold Fusion</label>
+
+	<input type="radio" id="other" name="tech" value="Other">
+	<label for="other">Other</label>
+
+	<br>
+	<label>You have selected:</label>
+	<span id="selected-tech"></span>
+    
+</body>
+<script>
+    fetch('https://res.cloudinary.com/des3si8bs/raw/upload/v1679912721/drinks_y1vudo.json').then((response)=>{
+        return response.json()
+    }).then((data)=>{
+        var tmp = data.drinks
+        var a = tmp.filter((p)=>{
+          return p = '11007'
+        })
+        console.log(a)
+        console.log(tmp)
+    })
+</script>
+</html>

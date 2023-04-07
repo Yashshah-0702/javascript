@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>date</title>
+</head>
+<body>
+    <input type="text" name="date" id="date">
+    <button type="button" onclick="change()">submit</button>
+    <script>
+        function change(){
+        var dt = document.getElementById("date").value;
+        var arr=dt.split("-");
+        
+        mnday=[1,3,5,7,8,10,12]
+
+        if(arr.length==3){
+            var month=parseInt(arr[0])
+            var day=parseInt(arr[1])
+            var year=parseInt(arr[2])
+            if(month>12 || month<1){
+                alert("Invalid Month");
+            }
+            else if(mnday.indexOf(month) !== -1){
+                if(day>31 || day<1){
+                    alert("day should be in proper format");
+                }
+            }
+            else if(month == 2){
+                if(year % 4==0 && (year % 100 !==0 || year % 400 == 0)){
+                    if(day>29 || day<1){
+                        alert("invalid date")
+                    }
+                }
+                else{
+                    if(day>28 || day<1){
+                        alert("Invalid date")
+                    }
+                }
+            }
+            else{
+                if(day>30 || day<1){
+                    alert("Invalid day");
+                }
+            }
+        }
+        else{
+            alert("enter valid date");
+        }
+    };
+    </script>
+    
+</body>
+</html>

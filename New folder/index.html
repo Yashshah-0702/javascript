@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="" id="fname">
+
+    <button onclick="Login()">Login</button>
+    <script>
+        function Login() {
+            fetch('https://gorest.co.in/public/v2/users').then((response) => {
+                return response.json()
+        })
+                .then((data) => {
+            
+            var name = document.getElementById("fname").value;
+            let flag = false;
+            for (let i = 0; i < data.length; i++) {
+                var name2 = `${data[i]["name"]}`
+
+                console.log(name2)
+                if (name === "") {
+
+                    break
+                }
+                else if (name === name2) {
+                    alert("You have entered correct name")
+                    flag = true
+                    break
+
+                }
+
+            }
+            if (flag == false) {
+                alert("enter valid name ")
+            }
+
+
+        })
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="id"></p>
+    <script>
+        // var A = function(R){
+        //     const p = 3.14;
+        //     return (p*R*R)
+
+        // }
+
+        // var  B = prompt("Enter Radius Of Circle = ")
+        // var ans = document.getElementById("id");
+        // ans.innerHTML="Area is "+A(B)
+
+
+        // let area = function(radius){
+        //     return (radius*radius)
+        // }
+
+        // var b = prompt("Enter number")
+        // document.getElementById("id").innerHTML="Area  of Square is "+area(b)
+
+        let age = function(){
+            var num1 = "You are older";
+            return num1;
+        }
+
+        let age1 = function(){
+            var num2 = "you are perfect";
+            return num2;
+        }
+        let age2 = function(){
+            var num3 = "you are Younger";
+            return num3;
+        }
+
+        var b = parseInt(prompt("Enter Age"))
+        if (b>30){
+            document.getElementById("id").innerHTML=age(b)
+        }
+        else if(b>20){
+            document.getElementById("id").innerHTML=age1(b)
+        }
+        else{
+            document.getElementById("id").innerHTML=age2(b)
+        }
+    </script>
+</body>
+</html>

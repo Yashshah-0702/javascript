@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <style>
+        .hide1{
+            display: none;
+        }
+        .hide1:target{
+            display: block;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="bg-dark">
+                <h1 class="text-white m-20">Crypto Trading</h1>
+            </div>
+            <div>
+                <ul>
+                    <li><a href="#home">Market</a></li>
+                    <li><a href="#YourCoins"> Your Crypto Coins</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <section id="home" class="hide1">
+                <table class="table table-primary" id="table">
+                    <caption></caption>
+                </table>
+            </section>
+            <section id="YourCoins" class="hide1">
+
+            </section>
+        </div>
+
+    </div>
+
+
+
+    <script>
+        fetch('https://api.coinstats.app/public/v1/markets?coinId=bitcoin').then((response) => {
+            return response.json()
+        }).then((data) => {
+            var table = document.getElementById("table")
+            table.innerHTML = "<thead><tr><th>SR.No.</th><th>Price</th><th>Exchange</th><th>Pair</th><th>Pairprice</th><th>Volume</th><th>Buy Coins</th></tr></thead>"
+            console.log("data is Loaded")
+            for (let i = 0; i < data.length; i++) {
+                table.innerHTML += `<tbody><tr><td>${i}</td><td>${data[i]["price"]}</td><td>${data[i]["exchange"]}</td><td>${data[i]["pair"]}</td><td>${data[i]["pairPrice"]}</td><td>${data[i]["volume"]}</td><td><button class="btn btn-success">Buy</button></td></tr></tbody>`
+            }
+        })
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
